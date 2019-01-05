@@ -17,4 +17,9 @@ public static class SpriteRendererExtensions
     {
         return DOTween.To(() => rend.color, x => rend.color = x, endValue, duration);
     }
+
+    public static Tweener DOFade(this SpriteRenderer rend, float endValue, float duration)
+    {
+        return DOTween.ToAlpha(() => rend.color, x => rend.color = x, endValue, duration);
+    }
 }

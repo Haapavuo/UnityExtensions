@@ -39,7 +39,7 @@ public static class RendererExtensions
 
         if (rend is SpriteRenderer)
         {
-            return ShortcutExtensions43.DOFade((SpriteRenderer)rend, endValue, duration);
+            return SpriteRendererExtensions.DOFade((SpriteRenderer)rend, endValue, duration);
         }
         else if (rend is MeshRenderer)
         {
