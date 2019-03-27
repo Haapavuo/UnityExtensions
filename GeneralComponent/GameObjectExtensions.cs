@@ -51,4 +51,23 @@ public static class GameObjectExtensions
         SceneManager.GetActiveScene().GetRootGameObjects().ToList().Find(g => { result = g.GetComponentInChildren<T>(); return result != null; });
         return result;
     }
+
+    public static void SetLayerRecursively(this GameObject obj, int newLayer)
+    {
+        if (obj == null)
+        {
+            return;
+        }
+
+        obj.layer = newLayer;
+
+        foreach (Transform child in obj.transform)
+        {
+            if (child == null)
+            {
+                continue;
+            }
+            SetLayerRecursively(child.gameObject, newLayer);
+        }
+    }
 }
